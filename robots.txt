@@ -1,6 +1,10 @@
-# brandonsbaseballcards.com/robots.txt
-# Tell Google not to crawl any URLs in the shopping cart or images in the icons folder,
-# because they won't be useful in Google Search results.
-User-agent: googlebot
-Disallow: /checkout/
-Disallow: /icons/
+User-agent: Mediapartners-Google
+Disallow:
+User-agent: *
+
+Disallow: /search
+Allow: /
+Allow: /search/label
+
+Sitemap: https://www.giaodien.blog/sitemap.xml
+Sitemap: https://yushichivn230.tk/sitemap-pages.xml
