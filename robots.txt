@@ -6,5 +6,5 @@ Disallow: /search
 Allow: /
 Allow: /search/label
 
-Sitemap: https://www.giaodien.blog/sitemap.xml
-Sitemap: https://yushichivn230.tk/sitemap-pages.xml
+Sitemap: https://www.yushichivn230.tk/sitemap.xml
+Sitemap: https://www.yushichivn230.tk/sitemap-pages.xml
