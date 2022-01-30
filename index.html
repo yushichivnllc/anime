@@ -117,7 +117,126 @@ body{background:#f8f8f8 url() repeat fixed top left;background-color:#f8f8f8;fon
 .header-menu{position:relative;width:100%;height:48px;background-color:#fff;z-index:10;margin:0;border-bottom:1px solid #ebebeb}
 .header-menu .container{position:relative;margin:0 auto;padding:0}
 
-.wrapper { width: 980px; margin: 0 auto; } .wrapper-nav{ background: #fff; } .wrapper-nav.fixed { width: 100%; position: fixed; top: 0; left: 0; z-index: 7000; box-shadow: 0 0 5px 2px #ccc; } .wrapper-nav.fixed .nav-main { width: 980px; margin: 0 auto; } .nav-main { height: 36px; } .nav-main>ul { position: relative; width: 100%; max-width: 980px; padding: 0px; margin: 0px; } .nav-main>ul>li { list-style: none; float: left; padding: 12px 0 10px; border-bottom: solid 1px #ccc; } .nav-main>ul>li>a { color: #333; font-weight: 700; float: left; font-size: 14px; padding: 1px 3.6px; border-left: solid 1px #ccc; }
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #2d2c41;
+  font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
+}
+
+ul { list-style-type: none; }
+
+a {
+  color: #b63b4d;
+  text-decoration: none;
+}
+
+/** =======================
+ * Contenedor Principal
+ ===========================*/
+
+
+h1 {
+  color: #FFF;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 80px;
+}
+
+h1 a {
+  color: #c12c42;
+  font-size: 16px;
+}
+
+.accordion {
+  width: 100%;
+  max-width: 360px;
+  margin: 30px auto 20px;
+  background: #FFF;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.accordion .link {
+  cursor: pointer;
+  display: block;
+  padding: 15px 15px 15px 42px;
+  color: #4D4D4D;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #CCC;
+  position: relative;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.accordion li:last-child .link { border-bottom: 0; }
+
+.accordion li i {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  font-size: 18px;
+  color: #595959;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.accordion li i.fa-chevron-down {
+  right: 12px;
+  left: auto;
+  font-size: 16px;
+}
+
+.accordion li.open .link { color: #b63b4d; }
+
+.accordion li.open i { color: #b63b4d; }
+
+.accordion li.open i.fa-chevron-down {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/**
+ * Submenu
+ -----------------------------*/
+
+
+.submenu {
+  display: none;
+  background: #444359;
+  font-size: 14px;
+}
+
+.submenu li { border-bottom: 1px solid #4b4a5e; }
+
+.submenu a {
+  display: block;
+  text-decoration: none;
+  color: #d9d9d9;
+  padding: 12px;
+  padding-left: 42px;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.submenu a:hover {
+  background: #b63b4d;
+  color: #FFF;
+}
 
 #main-menu .widget,#main-menu .widget > .widget-title{display:none}
 #main-menu .show-menu{display:block}
@@ -638,39 +757,43 @@ ul.related-posts{margin:0}
 </div>
 <div class="wrapper-nav" id="main-menu-tto">
 
- <nav class="nav-main">
+ <h1>Smooth Accordion Dropdown Menu Demo</h1>
+<!-- Contenedor -->
+<ul id="accordion" class="accordion">
+  <li>
+    <div class="link"><i class="fa fa-database"></i>Web Design<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+      <li><a href="#">Photoshop</a></li>
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="link"><i class="fa fa-code"></i>Coding<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+      <li><a href="#">Javascript</a></li>
+      <li><a href="#">jQuery</a></li>
+      <li><a href="#">Ruby</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="link"><i class="fa fa-mobile"></i>Devices<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+      <li><a href="#">Tablet</a></li>
+      <li><a href="#">Mobile</a></li>
+      <li><a href="#">Desktop</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="link"><i class="fa fa-globe"></i>Global<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+      <li><a href="#">Google</a></li>
+      <li><a href="#">Bing</a></li>
+      <li><a href="#">Yahoo</a></li>
+    </ul>
+  </li>
+</ul>
 
-  <ul class="clearfix">
-
-   <li><a title="Home" href="#">Home</a></li>
-
-   <li><a title="Chính trị - Xã hội" href="#">Chính trị - Xã hội</a></li>
-
-   <li><a title="Thế giới" href="#">Thế giới</a></li>
-
-   <li><a title="Pháp luật" href="#">Pháp luật</a></li>
-
-   <li><a title="Kinh tế" href="#">Kinh tế</a></li>
-
-   <li><a title="Sống khỏe" href="#">Sống khỏe</a></li>
-
-   <li><a title="Giáo dục" href="#">Giáo dục</a></li>
-
-   <li><a title="iTuyển sinh" href="#">iTuyển sinh</a></li>
-
-   <li><a title="Thể thao" href="#">Thể thao</a></li>
-
-   <li><a title="Văn hóa - Giải trí" href="#">Văn hóa - Giải trí</a></li>
- 
-   <li><a title="Nhịp sống trẻ" href="#">Nhịp sống trẻ</a></li>
-
-   <li><a title="Nhịp sống số" href="#">Nhịp sống số</a></li>
-
-   <li><a title="Bạn đọc" href="#">Bạn đọc</a></li>
-
-  </ul>
-
- </nav>
 
 </div>
 <div id='nav-search'>
@@ -773,81 +896,33 @@ Footer Menu Widget
 </div>
 </div>
 
-Thủ thuật lập trình Web - lập trình web - Web Development
-Trang chủWordpressWordPress Themes
-Thịnh Nguyễn trong NukeViet ThemesWordPress Themes5 năm trước đây
-Hướng dẫn cố định menu khi kéo kéo thanh scroll xuống dưới
-Hướng dẫn cố định menu khi kéo kéo thanh scroll xuống dưới
+$(function() {
+  var Accordion = function(el, multiple) {
+    this.el = el || {};
+    this.multiple = multiple || false;
 
-web-deverloper
+    // Variables privadas
+    var links = this.el.find('.link');
+    // Evento
+    links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+  }
 
-Xin chào tất cả các bạn, trong quá trình support anh em web develop trên facebook thì anh em đều gặp phải trường hợp là muốn cố định menu như website tuoitre.vn nhưng lại không làm thế nào thì hôm nay Thịnh chia sẻ với anh em cách cố định menu khi thực hiện kéo thanh scroll xuống. Cách này mình mình sử dụng css, html và cả jquery nữa. Nhưng mình sẽ không làm hiệu ứng ẩn hiện ảo diệu nữa mà dạng jquery thêm vào thẻ class đã viết sẵn css cố định rồi. Chính vì thế bạn muốn thêm hiệu ứng ẩn hiện hay ra sao thì có thể thêm một chút css hiệu ứng với cả thêm một chút jquery là nó sẽ ảo ảo chút là được. Còn cụ thể sao để ẩn hiện đẹp thì mình sẽ có bài khác hướng dẫn cụ thể.
+  Accordion.prototype.dropdown = function(e) {
+    var $el = e.data.el;
+      $this = $(this),
+      $next = $this.next();
 
-Không dài dòng nữa sau đây mình hướng dẫn các bạn.
+    $next.slideToggle();
+    $this.parent().toggleClass('open');
 
-Đầu tiên bạn tiến hành viết html cho menu trước sau đó mới tiến hành viết css và cuối cùng viết jquery cho nó.
+    if (!e.data.multiple) {
+      $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+    };
+  } 
 
-Bước 1: Viết html, bạn tiến hành viết html như dạng sau, bạn cũng có thể viết dạng menu đa cấp cũng vẫn được.
-
-<div class="wrapper-nav" id="main-menu-tto">
-
- <nav class="nav-main">
-
-  <ul class="clearfix">
-
-   <li><a title="Home" href="#">Home</a></li>
-
-   <li><a title="Chính trị - Xã hội" href="#">Chính trị - Xã hội</a></li>
-
-   <li><a title="Thế giới" href="#">Thế giới</a></li>
-
-   <li><a title="Pháp luật" href="#">Pháp luật</a></li>
-
-   <li><a title="Kinh tế" href="#">Kinh tế</a></li>
-
-   <li><a title="Sống khỏe" href="#">Sống khỏe</a></li>
-
-   <li><a title="Giáo dục" href="#">Giáo dục</a></li>
-
-   <li><a title="iTuyển sinh" href="#">iTuyển sinh</a></li>
-
-   <li><a title="Thể thao" href="#">Thể thao</a></li>
-
-   <li><a title="Văn hóa - Giải trí" href="#">Văn hóa - Giải trí</a></li>
- 
-   <li><a title="Nhịp sống trẻ" href="#">Nhịp sống trẻ</a></li>
-
-   <li><a title="Nhịp sống số" href="#">Nhịp sống số</a></li>
-
-   <li><a title="Bạn đọc" href="#">Bạn đọc</a></li>
-
-  </ul>
-
- </nav>
-
-</div>
-
-
-<script type="text/javascript">
- jQuery(document).ready(function($) {
-  $(window).load(function() {
-   if ($('.wrapper-nav').length > 0) {
-     var _top = $('.wrapper-nav').offset().top - parseFloat($('.wrapper-nav').css('marginTop').replace(/auto/, 0));
-      $(window).scroll(function(evt) {
-       var _y = $(this).scrollTop();
-       if (_y > _top) {
-       $('.wrapper-nav').addClass('fixed');
-       $('.main-1').css("margin-top", "30px")
-       } else {
-       $('.wrapper-nav').removeClass('fixed');
-       $('.main-1').css("margin-top", "0")
-     }
-    })
-   }
-  });
- });
-</script>
-
+  var accordion = new Accordion($('#accordion'), false);
+});
+Resources
 <!-- Theme Functions JS -->
 <script type="text/javascript">
 //<![CDATA[
