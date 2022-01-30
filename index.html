@@ -100,196 +100,260 @@ body{background:#f8f8f8 url() repeat fixed top left;background-color:#f8f8f8;fon
 .social-color .snapchat a{background-color:#ffe700}
 .social-color .email a{background-color:#888}
 .social-color .external-link a{background-color:#111111}
-#header-wrap{position:relative;margin:0}
-.header-header{background:linear-gradient(to right,#33eb7a 40%,#43f4b5);width:100%;height:40px;position:relative;overflow:hidden;padding:15px 0}
-.header-header .container{position:relative;margin:0 auto;padding:0}
-.header-logo{position:relative;float:left;width:auto;max-width:250px;max-height:40px;padding:0;margin:0}
-.header-logo .header-image-wrapper{display:block}
-.header-logo img{max-width:100%;max-height:40px;margin:0}
-.header-logo h1{color:#fff;font-size:23px;line-height:40px;text-transform:uppercase;margin:0}
-.header-logo h1 a{color:#fff;transition:color .17s ease}
-.header-logo h1 a:hover{color:#33eb7a}
-.header-logo p{font-size:12px;margin:5px 0 0}
-#header-social{float:right}
-.header-social li{float:left;margin:5px 0 0 10px}
-.header-social li a{display:block;width:30px;background-color:#fff;font-size:18px;color:#43f4b5;text-align:center;line-height:30px;padding:0;border-radius:30px;transition:color .17s ease}
-.header-social li a:hover{color:#171717}
-.header-menu{position:relative;width:100%;height:48px;background-color:#fff;z-index:10;margin:0;border-bottom:1px solid #ebebeb}
-.header-menu .container{position:relative;margin:0 auto;padding:0}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+$font-family: 'Roboto', sans-serif;
+$font-size-base: 0.925rem;
+$base-color: #66f;
+$text-dark: #3c4250;
+$border-color: #eceef3;
+
+$navbar-body-color: #fff;
+// $navbar-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.035);
+$navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$navbar-padding-y: 1rem;
+$navbar-padding-x: 1.15rem;
+
+$navbar-link-hover: $base-color;
+$navbar-link-padding-y: 0.5rem;
+$navbar-link-padding-x: 1rem;
+
+$navbar-dropdown-padding-y: 0.5rem;
+$navbar-dropdown-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+$navbar-dropdown-radius: 0.75rem;
+
+$navbar-dropdown-item-padding-y: 0.25rem;
+$navbar-dropdown-item-padding-x: 1rem;
+
+$navbar-dropdown-separator-margin-y: 9px;
+$navbar-dropdown-separator-color: $border-color;
 
 * {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background: #2d2c41;
-  font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
+  font-family: $font-family;
+  font-size: $font-size-base;
 }
-
-ul { list-style-type: none; }
 
 a {
-  color: #b63b4d;
   text-decoration: none;
 }
 
-/** =======================
- * Contenedor Principal
- ===========================*/
-
-
-h1 {
-  color: #FFF;
-  font-size: 24px;
-  font-weight: 400;
-  text-align: center;
-  margin-top: 80px;
-}
-
-h1 a {
-  color: #c12c42;
-  font-size: 16px;
-}
-
-.accordion {
-  width: 100%;
-  max-width: 360px;
-  margin: 30px auto 20px;
-  background: #FFF;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.accordion .link {
-  cursor: pointer;
-  display: block;
-  padding: 15px 15px 15px 42px;
-  color: #4D4D4D;
-  font-size: 14px;
-  font-weight: 700;
-  border-bottom: 1px solid #CCC;
+.container {
+  width: 1170px;
   position: relative;
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding: {
+    left: 15px;
+    right: 15px;
+  }
 }
 
-.accordion li:last-child .link { border-bottom: 0; }
+// Start navbar
 
-.accordion li i {
-  position: absolute;
-  top: 16px;
-  left: 12px;
-  font-size: 18px;
-  color: #595959;
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+.navbar,
+.navbar > .container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    display: block;
+  }
 }
 
-.accordion li i.fa-chevron-down {
-  right: 12px;
-  left: auto;
-  font-size: 16px;
+.navbar {
+  box-shadow: $navbar-shadow;
+  background-color: $navbar-body-color;
+  padding: $navbar-padding-y $navbar-padding-x;
+  border-bottom: 1px solid $border-color;
+
+  .container {
+    @media (min-width: 576px) {
+      max-width: 540px;
+    }
+    @media (min-width: 768px) {
+      max-width: 720px;
+    }
+    @media (min-width: 992px) {
+      max-width: 960px;
+    }
+    @media (min-width: 1200px) {
+      max-width: 1140px;
+    }
+  }
+
+  /*
+  |-----------------------------------
+  | Start navbar logo or brand etc..
+  |-----------------------------------
+  */
+  .navbar-header {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    .navbar-toggler {
+      // border-radius: 5px;
+      // background-color: transparent;
+      cursor: pointer;
+      border: none;
+      display: none;
+      outline: none;
+
+      @media (max-width: 768px) { display: block }
+
+      span {
+        height: 2px;
+        width: 22px;
+        background-color: lighten($text-dark, 35%);
+        display: block;
+      }
+      span:not(:last-child) {
+        margin-bottom: 0.2rem;
+      }
+    }
+
+    > a {
+      font-weight: 500;
+      color: $text-dark;
+    }
+  }
+
+  /*
+  |-----------------------------------
+  | Start navbar menu
+  |-----------------------------------
+  */
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+    flex-basis: auto;
+    flex-grow: 1;
+
+    @media (max-width: 768px) {
+      display: none;
+      text-align: center;
+    }
+
+    // Ul
+    .navbar-nav {
+      margin-left: auto;
+      flex-direction: row;
+      display: flex;
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        display: block;
+        border-top: 1px solid #EEE;
+        margin-top: 1rem;
+      }
+
+      > li {
+        > a {
+          color: $text-dark;
+          text-decoration: none;
+          display: inline-block;
+          padding: $navbar-link-padding-y $navbar-link-padding-x;
+          &:hover {
+            color: $navbar-link-hover;
+          }
+          @media (max-width: 768px) {
+            border-bottom: 1px solid $border-color;
+          }
+        }
+        &.active {
+          a {
+            color: $base-color;
+          }
+        }
+      }
+
+      .navbar-dropdown {
+        .dropdown {
+          list-style: none;
+          position: absolute;
+          top: 150%;
+          left: 0;
+          background-color: #fff;
+          padding-top: $navbar-dropdown-padding-y;
+          padding-bottom: $navbar-dropdown-padding-y;
+          min-width: 160px;
+          width: auto;
+          white-space: nowrap;
+          box-shadow: $navbar-dropdown-shadow;
+          z-index: 99999;
+          border-radius: $navbar-dropdown-radius;
+          display: none;
+          @media (max-width: 768px) {
+            position: relative;
+            box-shadow: none;
+          }
+          li {
+            a {
+              color: $text-dark;
+              padding: $navbar-dropdown-item-padding-y
+                       $navbar-dropdown-item-padding-x;
+              display: block;
+            }
+          }
+          &.show {
+            display: block !important;
+          }
+        }
+      }
+
+      .dropdown > .separator {
+        height: 1px;
+        width: 100%;
+        margin: {
+          top: $navbar-dropdown-separator-margin-y;
+          bottom: $navbar-dropdown-separator-margin-y;
+        };
+        background-color: $navbar-dropdown-separator-color;
+      }
+    }
+  }
+
+  .navbar-dropdown {
+    position: relative;
+  }
 }
 
-.accordion li.open .link { color: #b63b4d; }
 
-.accordion li.open i { color: #b63b4d; }
-
-.accordion li.open i.fa-chevron-down {
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
+// Custom
+.navbar .navbar-header > a span {
+  color: $base-color;
+}
+.navbar .navbar-header h4 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+  }
 }
 
-/**
- * Submenu
- -----------------------------*/
 
 
-.submenu {
-  display: none;
-  background: #444359;
-  font-size: 14px;
-}
-
-.submenu li { border-bottom: 1px solid #4b4a5e; }
-
-.submenu a {
-  display: block;
-  text-decoration: none;
-  color: #d9d9d9;
-  padding: 12px;
-  padding-left: 42px;
-  -webkit-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-.submenu a:hover {
-  background: #b63b4d;
-  color: #FFF;
-}
-
-#main-menu .widget,#main-menu .widget > .widget-title{display:none}
-#main-menu .show-menu{display:block}
-#main-menu{position:relative;height:48px;z-index:15}
-#main-menu ul > li{float:left;position:relative;margin:0;padding:0;transition:background .17s}
-#main-menu ul > li > a{position:relative;color:#171717;font-size:13px;font-weight:600;text-transform:uppercase;line-height:48px;display:inline-block;margin:0;padding:0 13px;transition:color .17s ease}
-#main-menu ul#main-menu-nav > li:first-child > a{padding:0 13px 0 0}
-#main-menu ul > li:hover > a{color:#33eb7a}
-#main-menu ul > li > ul{position:absolute;float:left;left:0;top:48px;width:180px;background-color:#111111;z-index:99999;margin:0;padding:0;box-shadow:0 3px 5px rgba(0,0,0,0.2);visibility:hidden;opacity:0}
-#main-menu ul > li > ul > li > ul{position:absolute;float:left;top:0;left:100%;padding:5px 0;margin:0}
-#main-menu ul > li > ul > li{display:block;float:none;position:relative;transition:all .17s ease}
-#main-menu ul > li > ul > li a{display:block;height:36px;font-size:12px;color:#fff;line-height:36px;box-sizing:border-box;margin:0;padding:0 15px;transition:all .17s ease}
-#main-menu ul > li > ul > li:hover > a{color:#33eb7a}
-#main-menu ul > li.has-sub > a:after{content:'\f107';float:right;font-family:FontAwesome;font-size:14px;font-weight:400;margin:0 0 0 3px}
-#main-menu ul > li > ul > li.has-sub > a:after{content:'\f105';float:right;margin:0}
-#main-menu .mega-menu{position:static!important}
-#main-menu .mega-menu > ul{width:100%;box-sizing:border-box;padding:20px 10px}
-#main-menu .mega-menu > ul.mega-menu-inner{overflow:hidden}
-#main-menu ul > li:hover > ul,#main-menu ul > li > ul > li:hover > ul{visibility:visible;opacity:1}
-#main-menu ul ul{transition:all .17s ease}
-.mega-menu-inner .mega-item{float:left;width:25%;box-sizing:border-box;padding:0 10px}
-.mega-menu-inner .mega-content{position:relative;width:100%;overflow:hidden;padding:0}
-.mega-content .post-image-wrap{width:100%;height:140px;overflow:hidden}
-.mega-content .post-image-link{width:100%;height:100%;z-index:1;display:block;position:relative;overflow:hidden}
-.mega-content .post-title{position:relative;font-size:14px;font-weight:600;line-height:1.6em;margin:10px 0 5px}
-.mega-content .post-title a{display:block;color:#fff;transition:color .17s}
-.mega-content:hover .post-title a{color:#33eb7a}
-.no-posts{float:left;width:100%;height:100px;line-height:100px;text-align:center}
-.mega-menu .no-posts{line-height:60px;color:#171717}
-.show-search{position:absolute;right:0;top:10px;display:block;height:28px;line-height:24px;z-index:20;color:#171717;font-size:13px;text-align:right;cursor:pointer;box-sizing:border-box;padding:0 10px;border:2px solid #171717;border-radius:28px;transition:all .17s ease}
-.show-search:hover{color:#33eb7a}
-.search-active .show-search{border-color:#33eb7a}
-#nav-search{position:absolute;right:0;top:48px;width:250px;height:48px;z-index:10;background-color:#111111;box-sizing:border-box;padding:10px;visibility:hidden;opacity:0;transition:all .25s ease}
-.search-active #nav-search{visibility:visible;opacity:1}
-#nav-search .search-form{width:100%;height:28px;background-color:rgba(0,0,0,0);line-height:28px;overflow:hidden;padding:0;border:0}
-#nav-search .search-input{width:100%;height:28px;font-family:inherit;color:#fff;margin:0;padding:0 10px;background-color:rgba(255,255,255,0.05);font-size:13px;font-weight:400;box-sizing:border-box;border:0;border-radius:3px}
-#nav-search .search-input:focus{color:#fff;outline:none}
-.slide-menu-toggle{display:none;position:absolute;line-height:48px;height:48px;width:48px;top:0;left:0;font-family:FontAwesome;color:#171717;font-size:17px;font-weight:400;text-align:left;cursor:pointer;z-index:4;padding:0}
-.slide-menu-toggle:before{content:"\f0c9"}
-.nav-active .slide-menu-toggle:before{content:"\f00d"}
-.mobile-menu{display:none;position:absolute;top:48px;left:0;width:100%;background-color:#111111;box-sizing:border-box;padding:20px;border-top:1px solid rgba(255,255,255,0.08);visibility:hidden;opacity:0;transform-origin:0 0;transform:scaleY(0);transition:all .17s ease}
-.nav-active .mobile-menu{visibility:visible;opacity:1;transform:scaleY(1)}
-.mobile-menu > ul{margin:0}
-.mobile-menu .m-sub{display:none;padding:0}
-.mobile-menu ul li{position:relative;display:block;overflow:hidden;float:left;width:100%;font-size:13px;font-weight:600;text-transform:uppercase;line-height:38px;margin:0;padding:0}
-.mobile-menu > ul li ul{overflow:hidden}
-.mobile-menu ul li a{color:#fff;padding:0;display:block;transition:all .17s ease}
-.mobile-menu ul li.has-sub .submenu-toggle{position:absolute;top:0;right:0;color:#fff;cursor:pointer}
-.mobile-menu ul li.has-sub .submenu-toggle:after{content:'\f105';font-family:FontAwesome;font-weight:400;float:right;width:34px;font-size:16px;text-align:center;transition:all .17s ease}
-.mobile-menu ul li.has-sub.show > .submenu-toggle:after{transform:rotate(90deg)}
-.mobile-menu > ul > li > ul > li > a{color:#fff;opacity:.7;padding:0 0 0 15px}
-.mobile-menu > ul > li > ul > li > ul > li > a{color:#fff;opacity:.7;padding:0 0 0 30px}
-.mobile-menu ul li a:hover,.mobile-menu ul > li > .submenu-toggle:hover{color:#33eb7a}
 .post-meta{overflow:hidden;color:#aaa;font-size:11px;font-weight:400;padding:0 1px}
 .post-meta .post-author,.post-meta .post-date{float:left;display:inline-block;margin:0 10px 0 0}
 .post-meta .post-author:before,.post-meta .post-date:before{font-family:FontAwesome;font-weight:400;margin:0 3px 0 0}
@@ -731,68 +795,58 @@ ul.related-posts{margin:0}
 </div></div>
 </div>
 <!-- Outer Wrapper -->
-<div id='outer-wrapper'>
-<!-- Header Wrapper -->
-<div id='header-wrap'>
-<div class='header-header'>
-<div class='container row'>
-<div class='header-logo section' id='header-logo' name='Header Logo'><div class='widget Header' data-version='2' id='Header1'>
-<div class='header-widget'>
-<a class='header-image-wrapper' href='https://fanartanime123.blogspot.com/'>
-<img alt='Yushichi Anime VN' data-height='30' data-width='307' src='https://blogger.googleusercontent.com/img/a/AVvXsEh2umlRxRkD1fazfAFKc7k4DJswnHNIKfHb-hR00dRXFzJ9vmLghC36E3asSYdm6pzAEtBhlwiRJfvIUD3802We4L0CGJvupLlz7ygXRHmFYok8JDU80v6xIBamvIOvaNPYQukFHg4jRcoa3a79PExFUW-TVCNJC951lWKHZapneh9gtOKD2jkUZ780fw=s307'/>
-</a>
-</div>
-</div></div>
-<div class='header-social social section' id='header-social' name='Header Social'><div class='widget LinkList' data-version='2' id='LinkList73'>
-<div class='widget-content'>
-<ul>
-<li class='facebook'><a href='https://fb.com/soratemplates' target='_blank' title='facebook'></a></li>
-<li class='twitter'><a href='#' target='_blank' title='twitter'></a></li>
-<li class='instagram'><a href='https://www.facebook.com/hpm.vlogs.3' target='_blank' title='instagram'></a></li>
-<li class='pinterest'><a href='https://www.pinterest.com/teamyushichi' target='_blank' title='pinterest'></a></li>
-</ul>
-</div>
-</div></div>
-</div>
-</div>
-<div class="wrapper-nav" id="main-menu-tto">
 
- <h1>Smooth Accordion Dropdown Menu Demo</h1>
-<!-- Contenedor -->
-<ul id="accordion" class="accordion">
-  <li>
-    <div class="link"><i class="fa fa-database"></i>Web Design<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-      <li><a href="#">Photoshop</a></li>
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="link"><i class="fa fa-code"></i>Coding<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-      <li><a href="#">Javascript</a></li>
-      <li><a href="#">jQuery</a></li>
-      <li><a href="#">Ruby</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="link"><i class="fa fa-mobile"></i>Devices<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-      <li><a href="#">Tablet</a></li>
-      <li><a href="#">Mobile</a></li>
-      <li><a href="#">Desktop</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="link"><i class="fa fa-globe"></i>Global<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-      <li><a href="#">Google</a></li>
-      <li><a href="#">Bing</a></li>
-      <li><a href="#">Yahoo</a></li>
-    </ul>
-  </li>
-</ul>
+<nav class="navbar">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button class="navbar-toggler" data-toggle="open-navbar1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="#">
+        <h4>Awesome<span>logo</span></h4>
+      </a>
+    </div>
+
+    <div class="navbar-menu" id="open-navbar1">
+      <ul class="navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="navbar-dropdown">
+          <a href="#" class="dropdown-toggler" data-dropdown="my-dropdown-id">
+            Categories <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown" id="my-dropdown-id">
+            <li><a href="#">Actions</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="separator"></li>
+            <li><a href="#">Seprated link</a></li>
+            <li class="separator"></li>
+            <li><a href="#">One more seprated link.</a></li>
+          </ul>
+        </li>
+        <li class="navbar-dropdown">
+          <a href="#" class="dropdown-toggler" data-dropdown="blog">
+            Blog <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown" id="blog">
+            <li><a href="#">Some category</a></li>
+            <li><a href="#">Some another category</a></li>
+            <li class="separator"></li>
+            <li><a href="#">Seprated link</a></li>
+            <li class="separator"></li>
+            <li><a href="#">One more seprated link.</a></li>
+          </ul>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Signin</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
 <div class='clearfix'></div>
 <!-- Main Slider -->
@@ -884,32 +938,72 @@ Footer Menu Widget
 </div>
 </div>
 <script>
-$(function() {
-  var Accordion = function(el, multiple) {
-    this.el = el || {};
-    this.multiple = multiple || false;
+// Other important pens.
+// Map: https://codepen.io/themustafaomar/pen/ZEGJeZq
+// Dashboard: https://codepen.io/themustafaomar/pen/jLMPKm
 
-    // Variables privadas
-    var links = this.el.find('.link');
-    // Evento
-    links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+let dropdowns = document.querySelectorAll('.navbar .dropdown-toggler')
+let dropdownIsOpen = false
+
+// Handle dropdown menues
+if (dropdowns.length) {
+  // Usually I don't recommend doing this (adding many event listeners to elements have the same handler)
+  // Instead use event delegation: https://javascript.info/event-delegation
+  // Why: https://gomakethings.com/why-event-delegation-is-a-better-way-to-listen-for-events-in-vanilla-js
+  // But since we only have two dropdowns, no problem with that. 
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener('click', (event) => {
+      let target = document.querySelector(`#${event.target.dataset.dropdown}`)
+
+      if (target) {
+        if (target.classList.contains('show')) {
+          target.classList.remove('show')
+          dropdownIsOpen = false
+        } else {
+          target.classList.add('show')
+          dropdownIsOpen = true
+        }
+      }
+    })
+  })
+}
+
+// Handle closing dropdowns if a user clicked the body
+window.addEventListener('mouseup', (event) => {
+  if (dropdownIsOpen) {
+    dropdowns.forEach((dropdownButton) => {
+      let dropdown = document.querySelector(`#${dropdownButton.dataset.dropdown}`)
+      let targetIsDropdown = dropdown == event.target
+
+      if (dropdownButton == event.target) {
+        return
+      }
+
+      if ((!targetIsDropdown) && (!dropdown.contains(event.target))) {
+        dropdown.classList.remove('show')
+      }
+    })
   }
+})
 
-  Accordion.prototype.dropdown = function(e) {
-    var $el = e.data.el;
-      $this = $(this),
-      $next = $this.next();
+// Open links in mobiles
+function handleSmallScreens() {
+  document.querySelector('.navbar-toggler')
+    .addEventListener('click', () => {
+    let navbarMenu = document.querySelector('.navbar-menu')
 
-    $next.slideToggle();
-    $this.parent().toggleClass('open');
+    if (navbarMenu.style.display === 'flex') {
+      navbarMenu.style.display = 'none'
+      return
+    }
 
-    if (!e.data.multiple) {
-      $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-    };
-  } 
+    navbarMenu.style.display = 'flex'
+  })
+}
 
-  var accordion = new Accordion($('#accordion'), false);
-});
+handleSmallScreens()
+
+
 </script>
 <!-- Theme Functions JS -->
 <script type="text/javascript">
